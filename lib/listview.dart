@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kalkulator_flutter/componentPage/adapterList.dart';
 import 'package:kalkulator_flutter/model/model_datar.dart';
 
+
 class CustomListView extends StatefulWidget {
   const CustomListView({super.key});
 
@@ -14,12 +15,14 @@ class _CustomListViewState extends State<CustomListView> {
     ModelDatar(name: "Persegi", image: "images/persegi.png"),
     ModelDatar(name: "Persegi Panjang", image: "images/persegiPanjang.png"),
     ModelDatar(name: "Lingkaran", image: "images/lingkaran.png"),
+
   ];
 
   @override
   void initState() {
     super.initState();
     for (var bangun in datarModel) {
+
       print('Name: ${bangun.name}, Image Path: ${bangun.image}');
     }
   }
@@ -37,6 +40,7 @@ class _CustomListViewState extends State<CustomListView> {
           itemCount: datarModel.length,
           itemBuilder: (context, index) {
             return AdapterList(modelDatar: datarModel[index]);
+
           },
         ),
       ),

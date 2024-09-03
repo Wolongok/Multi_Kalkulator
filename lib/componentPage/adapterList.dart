@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../providers/item_provider.dart';
 import '../pages/item_detail_page.dart';
 import 'package:kalkulator_flutter/model/model_datar.dart';
@@ -7,6 +8,7 @@ import 'package:kalkulator_flutter/model/model_datar.dart';
 class AdapterList extends StatelessWidget {
   final ModelDatar modelDatar;
   const AdapterList({super.key, required this.modelDatar});
+
 
 
   @override
@@ -21,6 +23,7 @@ class AdapterList extends StatelessWidget {
           height: 60,
           child: Image.asset(
             modelDatar.image,
+
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               print('Error loading image: $error');
@@ -30,11 +33,13 @@ class AdapterList extends StatelessWidget {
         ),
         title: Text(
           modelDatar.name,
+
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
           Provider.of<ItemProvider>(context, listen: false).selectItem(modelDatar);
+
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => ItemDetailPage()),

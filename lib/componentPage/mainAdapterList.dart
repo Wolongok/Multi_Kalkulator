@@ -16,8 +16,8 @@ class Mainadapterlist extends StatelessWidget {
       elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       child: ListTile(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
         leading: SizedBox(
           width: 60,
           height: 60,
@@ -52,6 +52,7 @@ class Mainadapterlist extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const CustomAritmatika()),
+
             );
           }
         },

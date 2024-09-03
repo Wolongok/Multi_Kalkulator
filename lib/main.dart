@@ -9,6 +9,7 @@ import 'package:kalkulator_flutter/providers/item_provider.dart';
 
 void main() {
   runApp(
+
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ValueProvider()),

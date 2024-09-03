@@ -58,6 +58,11 @@ class ValueProvider with ChangeNotifier {
     changeValue(totalLuas.toString());
   }
 
+  void calPangkat(double numberSatu, double numberDua) {
+    double result = pow(numberSatu, numberDua).toDouble();
+    changeValue(result.toString());
+  } 
+
   void caladd(double numberSatu, double numberDua) {
     double result = numberSatu += numberDua;
     changeValue(result.toString());

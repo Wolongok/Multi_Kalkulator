@@ -37,7 +37,7 @@ class AdapterList extends StatelessWidget {
           Provider.of<ItemProvider>(context, listen: false).selectItem(modelDatar);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ItemDetailPage()),
+            MaterialPageRoute(builder: (context) => const ItemDetailPage()),
           );
         },
       ),

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:kalkulator_flutter/providers/value_provider.dart';
 import 'package:provider/provider.dart';
-import '../providers/item_provider.dart';
+import '../providers/item_provider_datar.dart';
 import 'package:flutter/services.dart';
 
-class ItemDetailPage extends StatefulWidget {
-  const ItemDetailPage({super.key});
+import '../reuseable_componenet/my_text_field.dart';
+
+class ItemDetailPageDatar extends StatefulWidget {
+  const ItemDetailPageDatar({super.key});
 
   @override
-  _ItemDetailPageState createState() => _ItemDetailPageState();
+  _ItemDetailPageDatarState createState() => _ItemDetailPageDatarState();
 }
 
-class _ItemDetailPageState extends State<ItemDetailPage> {
+class _ItemDetailPageDatarState extends State<ItemDetailPageDatar> {
   final TextEditingController inputSatu = TextEditingController();
   final TextEditingController inputDua = TextEditingController();
 
@@ -49,42 +51,18 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                 ),
                 SizedBox(
                   width: 200,
-                  child: TextField(
-                    controller: inputSatu,
-                    decoration: const InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFF000000), width: 1),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFF777777), width: 1),
-                      ),
-                      contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
-                    ),
-                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
-                    ],
-                  ),
+                    child: MyTextField(controller: inputSatu,
+                      hintText: 'Enter a number',
+                      isNumberInput: true,
+                      allowDecimal: true,)
                 ),
                 if (selectedItem.name == "Persegi Panjang")
                   SizedBox(
                     width: 200,
-                    child: TextField(
-                      controller: inputDua,
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF000000), width: 1),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF777777), width: 1),
-                        ),
-                        contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
-                      ),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
-                      ],
-                    ),
+                      child: MyTextField(controller: inputDua,
+                        hintText: 'Enter a number',
+                        isNumberInput: true,
+                        allowDecimal: true,)
                   ),
                 ElevatedButton(
                   onPressed: () {

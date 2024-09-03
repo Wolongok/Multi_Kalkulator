@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kalkulator_flutter/componentPage/adapterList_aritmatik.dart';
+import 'package:kalkulator_flutter/componentPage/adapterListAritmatika.dart';
 import 'package:kalkulator_flutter/model/model_aritmatik.dart';
 
 class CustomAritmatika extends StatefulWidget {

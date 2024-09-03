@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import '../model/modelruang.dart';
+import '../model/model_ruang.dart';
 
 class ItemProviderRuang with ChangeNotifier {
   ModelRuang? _selectedItem;

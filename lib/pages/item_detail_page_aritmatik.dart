@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:kalkulator_flutter/providers/item_provider_aritmatik.dart';
 import 'package:kalkulator_flutter/providers/value_provider.dart';
 import 'package:provider/provider.dart';
-import '../providers/item_provider.dart';
+import '../providers/item_provider_datar.dart';
 import 'package:flutter/services.dart';
+
+import '../reuseable_componenet/my_text_field.dart';
 
 class ItemDetailPageAritmatik extends StatefulWidget {
   const ItemDetailPageAritmatik({super.key});
@@ -40,7 +42,7 @@ class _ItemDetailPageState extends State<ItemDetailPageAritmatik> {
               if (selectedItem != null) ...[
                 Image.asset(
                   selectedItem.image,
-                  width: 270,
+                  width: 200,
                   height: 200,
                   fit: BoxFit.cover,
                 ),
@@ -52,49 +54,17 @@ class _ItemDetailPageState extends State<ItemDetailPageAritmatik> {
                 ),
                 SizedBox(
                   width: 200,
-                  child: TextField(
-                    controller: inputSatu,
-                    decoration: const InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF000000), width: 1),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF777777), width: 1),
-                      ),
-                      contentPadding:
-                          EdgeInsets.only(top: 5, left: 15, bottom: -12),
-                    ),
-                    keyboardType:
-                        const TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
-                    ],
-                  ),
+                    child: MyTextField(controller: inputSatu,
+                      hintText: 'Enter a number',
+                      isNumberInput: true,
+                      allowDecimal: true,)
                 ),
                 SizedBox(
                   width: 200,
-                  child: TextField(
-                    controller: inputDua,
-                    decoration: const InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF000000), width: 1),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF777777), width: 1),
-                      ),
-                      contentPadding:
-                          EdgeInsets.only(top: 5, left: 15, bottom: -12),
-                    ),
-                    keyboardType:
-                        const TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
-                    ],
-                  ),
+                    child: MyTextField(controller: inputDua,
+                      hintText: 'Enter a number',
+                      isNumberInput: true,
+                      allowDecimal: true,)
                 ),
                 ElevatedButton(
                   onPressed: () {

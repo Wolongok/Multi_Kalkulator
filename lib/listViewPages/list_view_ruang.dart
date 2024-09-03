@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kalkulator_flutter/componentPage/adapterListRuang.dart';
-import 'package:kalkulator_flutter/model/modelruang.dart';
+import 'package:kalkulator_flutter/model/model_ruang.dart';
 
 class CustomListViewRuang extends StatefulWidget {
   const CustomListViewRuang({super.key});

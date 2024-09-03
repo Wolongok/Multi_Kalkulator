@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kalkulator_flutter/listViewPages/list_view_ruang.dart';
-import 'package:kalkulator_flutter/listViewPages/listview.dart';
-import 'package:kalkulator_flutter/listViewPages/listview_aritmatik.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kalkulator_flutter/providers/type_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:kalkulator_flutter/model/model_type.dart';
@@ -16,8 +14,8 @@ class Mainadapterlist extends StatelessWidget {
       elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         leading: SizedBox(
           width: 60,
           height: 60,
@@ -38,22 +36,16 @@ class Mainadapterlist extends StatelessWidget {
         onTap: () {
           Provider.of<TypeProvider>(context, listen: false)
               .selectItem(modelType);
-          if (modelType.name == "Bangun Datar") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CustomListViewDatar()),
-            );
-          } else if (modelType.name == "Bangun Ruang") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CustomListViewRuang()),
-            );
-          } else if (modelType.name == "Aritmatika") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CustomAritmatika()),
 
-            );
+          // Using GoRouter for navigation based on modelType.name
+          if (modelType.name == "Bangun Datar") {
+            context.push('/datar');
+          } else if (modelType.name == "Bangun Ruang") {
+            context.push('/ruang');
+          } else if (modelType.name == "Aritmatika") {
+            context.push('/aritmatika');
+          } else if (modelType.name == "Perpangkatan") {
+            context.push('/pangkat');
           }
         },
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kalkulator_flutter/listViewPages/list_view_ruang.dart';
 import 'package:kalkulator_flutter/listViewPages/listview.dart';
 import 'package:kalkulator_flutter/providers/type_provider.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,10 @@ class Mainadapterlist extends StatelessWidget {
             );
           }
           else if(modelType.name == "Bangun Ruang"){
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CustomListViewRuang()),
+            );
           }
         },
       ),

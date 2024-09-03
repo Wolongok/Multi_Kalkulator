@@ -7,7 +7,6 @@ class ItemProvider with ChangeNotifier {
   ModelDatar? get selectedItem => _selectedItem;
 
   void selectItem(ModelDatar item) {
-
     _selectedItem = item;
     notifyListeners();
   }

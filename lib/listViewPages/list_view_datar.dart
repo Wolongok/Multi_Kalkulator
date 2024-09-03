@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kalkulator_flutter/componentPage/adapterList.dart';
+import 'package:kalkulator_flutter/componentPage/adapterListDatar.dart';
 import 'package:kalkulator_flutter/providers/type_provider.dart';
 import 'package:provider/provider.dart';
 import '../model/model_datar.dart';

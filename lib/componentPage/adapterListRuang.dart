@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kalkulator_flutter/model/modelruang.dart';
-import 'package:kalkulator_flutter/pages/item_detail_ruang.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kalkulator_flutter/model/model_ruang.dart';
+import 'package:kalkulator_flutter/pages/item_detail_page_ruang.dart';
 import 'package:kalkulator_flutter/providers/item_provider_ruang.dart';
 import 'package:provider/provider.dart';
-import '../pages/item_detail_page.dart';  // Create this file next
+import '../pages/item_detail_page_datar.dart';  // Create this file next
 
 class Adapterlistruang extends StatelessWidget {
   final ModelRuang modelRuang;
@@ -36,10 +37,7 @@ class Adapterlistruang extends StatelessWidget {
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
           Provider.of<ItemProviderRuang>(context, listen: false).selectItem(modelRuang);
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) =>  ItemDetailPageRuang()),
-          );
+          context.push('/itp_ruang');
         },
       ),
     );

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kalkulator_flutter/listViewPages/list_view_ruang.dart';
-import 'package:kalkulator_flutter/listViewPages/listview.dart';
+import 'package:kalkulator_flutter/listViewPages/list_view_datar.dart';
 import 'package:kalkulator_flutter/listViewPages/listview_aritmatik.dart';
 import 'package:kalkulator_flutter/listViewPages/mainListView.dart';
+import 'package:kalkulator_flutter/pages/item_detail_page_aritmatik.dart';
+import 'package:kalkulator_flutter/pages/item_detail_page_datar.dart';
+import 'package:kalkulator_flutter/pages/item_detail_page_ruang.dart';
 import 'package:kalkulator_flutter/pages/pangkat.dart';
 import 'package:kalkulator_flutter/providers/item_provider_aritmatik.dart';
 import 'package:kalkulator_flutter/providers/item_provider_ruang.dart';
 import 'package:kalkulator_flutter/providers/type_provider.dart';
 import 'package:kalkulator_flutter/providers/value_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:kalkulator_flutter/providers/item_provider.dart';
+import 'package:kalkulator_flutter/providers/item_provider_datar.dart';
 
 void main() {
   final router = GoRouter(
@@ -33,6 +36,22 @@ void main() {
       ),
       GoRoute(
         path: '/pangkat',
+        builder: (context, state) => const pangkatPage(),
+      ),
+      GoRoute(
+        path: '/itp_aritmatik',
+        builder: (context, state) => const ItemDetailPageAritmatik(),
+      ),
+      GoRoute(
+        path: '/itp_ruang',
+        builder: (context, state) => const ItemDetailPageRuang(),
+      ),
+      GoRoute(
+        path: '/itp_datar',
+        builder: (context, state) => const ItemDetailPageDatar(),
+      ),
+      GoRoute(
+        path: '/itp_pangkat',
         builder: (context, state) => const pangkatPage(),
       ),
     ],

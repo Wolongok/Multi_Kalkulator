@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kalkulator_flutter/reuseable_componenet/my_text_field.dart';
 import 'package:provider/provider.dart';
 import '../providers/item_provider_ruang.dart';
 import 'package:flutter/services.dart';
 import '../providers/value_provider.dart';
 
 class ItemDetailPageRuang extends StatefulWidget {
+  const ItemDetailPageRuang({super.key});
+
   @override
   _ItemDetailPageStateRuang createState() => _ItemDetailPageStateRuang();
 }
@@ -46,48 +49,27 @@ class _ItemDetailPageStateRuang extends State<ItemDetailPageRuang> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  width: 200,
-                  child: TextField(
-                    controller: inputSatu,
-                    decoration: const InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFF000000), width: 1),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFF777777), width: 1),
-                      ),
-                      contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
-                    ),
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
-                    ],
-                  ),
-                ),
+                    width: 200,
+                    child: MyTextField(
+                      controller: inputSatu,
+                      hintText: 'Enter a number',
+                      isNumberInput: true,
+                      allowDecimal: true,
+                    )),
                 if (selectedItem.name == "Kerucut")
                   Container(
-                    width: 200,
-                    child: TextField(
-                      controller: inputDua,
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF000000), width: 1),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF777777), width: 1),
-                        ),
-                        contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
-                      ),
-                      keyboardType: TextInputType.numberWithOptions(decimal: true),
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
-                      ],
-                    ),
-                  ),
+                      width: 200,
+                      child: MyTextField(
+                        controller: inputDua,
+                        hintText: 'Enter a number',
+                        isNumberInput: true,
+                        allowDecimal: true,
+                      )),
                 ElevatedButton(
                   onPressed: () {
                     if (selectedItem.name == "Kubus") {
-                      valueProvider.calculateKubus(double.parse(inputSatu.text));
+                      valueProvider
+                          .calculateKubus(double.parse(inputSatu.text));
                     } else if (selectedItem.name == "Kerucut") {
                       valueProvider.calculateKerucut(
                         double.parse(inputSatu.text),

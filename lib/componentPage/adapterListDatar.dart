@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import '../providers/item_provider.dart';
-import '../pages/item_detail_page.dart';
+import '../providers/item_provider_datar.dart';
+import '../pages/item_detail_page_datar.dart';
 import 'package:kalkulator_flutter/model/model_datar.dart';
 
 class AdapterList extends StatelessWidget {
@@ -35,10 +36,7 @@ class AdapterList extends StatelessWidget {
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
           Provider.of<ItemProvider>(context, listen: false).selectItem(modelDatar);
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ItemDetailPage()),
-          );
+          context.push('/itp_datar');
         },
       ),
     );

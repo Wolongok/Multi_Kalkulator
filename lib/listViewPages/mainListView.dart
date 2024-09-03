@@ -29,7 +29,7 @@ class _CustomMainListViewState extends State<CustomMainListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("List Bangun Datar"),
+        title: const Text("List Kalkulator"),
         backgroundColor: Colors.blue,
       ),
       body: Container(

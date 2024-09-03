@@ -16,7 +16,7 @@ class AdapterList extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        leading: Container(
+        leading: SizedBox(
           width: 75,
           height: 60,
           child: Image.asset(
@@ -37,7 +37,7 @@ class AdapterList extends StatelessWidget {
           Provider.of<ItemProvider>(context, listen: false).selectItem(modelDatar);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ItemDetailPage()),
+            MaterialPageRoute(builder: (context) => const ItemDetailPage()),
           );
         },
       ),

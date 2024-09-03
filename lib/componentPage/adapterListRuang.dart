@@ -18,7 +18,7 @@ class Adapterlistruang extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        leading: Container(
+        leading: SizedBox(
           width: 75,
           height: 60,
           child: Image.asset(

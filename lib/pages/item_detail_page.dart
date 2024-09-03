@@ -5,6 +5,8 @@ import '../providers/item_provider.dart';
 import 'package:flutter/services.dart';
 
 class ItemDetailPage extends StatefulWidget {
+  const ItemDetailPage({super.key});
+
   @override
   _ItemDetailPageState createState() => _ItemDetailPageState();
 }
@@ -26,7 +28,7 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading: BackButton(),
+          leading: const BackButton(),
           title: Text(selectedItem?.name ?? 'Item Detail'),
         ),
         body: Center(
@@ -40,12 +42,12 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                   height: 200,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   selectedItem.name,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                Container(
+                SizedBox(
                   width: 200,
                   child: TextField(
                     controller: inputSatu,
@@ -58,14 +60,14 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                       ),
                       contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
                     ),
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
+                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
                     ],
                   ),
                 ),
                 if (selectedItem.name == "Persegi Panjang")
-                  Container(
+                  SizedBox(
                     width: 200,
                     child: TextField(
                       controller: inputDua,
@@ -78,7 +80,7 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                         ),
                         contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
                       ),
-                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
                       ],
@@ -97,16 +99,16 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                       valueProvider.calculateLingkaran(double.parse(inputSatu.text));
                     }
                   },
-                  child: Text('Hitung'),
+                  child: const Text('Hitung'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   context.watch<ValueProvider>().value,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Spacer(),
+                const Spacer(),
               ] else
-                Text('No item selected'),
+                const Text('No item selected'),
             ],
           ),
         ),

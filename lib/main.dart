@@ -15,7 +15,7 @@ void main() {
           ChangeNotifierProvider(create: (_) => TypeProvider()),
           ChangeNotifierProvider(create: (_) => ItemProviderRuang()),
         ],
-        child: MyApp(),
+        child: const MyApp(),
       ),
       );
 }

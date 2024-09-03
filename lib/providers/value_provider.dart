@@ -51,4 +51,9 @@ class ValueProvider with ChangeNotifier {
     double totalLuas = luasAlas + luasSelimut;
     changeValue(totalLuas.toString());
   }
+
+  void calPangkat(double numberSatu, double numberDua) {
+    double result = pow(numberSatu, numberDua).toDouble();
+    changeValue(result.toString());
+  } 
 }

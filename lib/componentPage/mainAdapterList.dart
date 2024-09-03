@@ -17,7 +17,7 @@ class Mainadapterlist extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        leading: Container(
+        leading: SizedBox(
           width: 60,
           height: 60,
           child: Image.asset(
@@ -39,13 +39,13 @@ class Mainadapterlist extends StatelessWidget {
           if(modelType.name == "Bangun Datar"){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CustomListViewDatar()),
+              MaterialPageRoute(builder: (context) => const CustomListViewDatar()),
             );
           }
           else if(modelType.name == "Bangun Ruang"){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CustomListViewRuang()),
+              MaterialPageRoute(builder: (context) => const CustomListViewRuang()),
             );
           }
         },

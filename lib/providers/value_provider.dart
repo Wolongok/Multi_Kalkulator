@@ -9,10 +9,12 @@ class ValueProvider with ChangeNotifier {
     value = valueAfter;
     notifyListeners();
   }
+
   void resetValue() {
     value = "0";
     notifyListeners();
   }
+
   void calculatePersegi(double number) {
     double result = number * 4;
     changeValue(result.toString());
@@ -28,27 +30,56 @@ class ValueProvider with ChangeNotifier {
     changeValue(result.toString());
   }
 
-  void calculatePangkat(double numberSatu, double numberDua){
+  void calculatePangkat(double numberSatu, double numberDua) {
     double result = 1;
 
-    for (int i = 1; 1 <= numberDua; i++){
+    for (int i = 1; 1 <= numberDua; i++) {
       result *= numberSatu;
     }
     changeValue(result.toString());
   }
+
   void calculateKubus(double number) {
-    double result = 12 * number;
+    double result = number * number * 6;
     changeValue(result.toString());
   }
+
   void calculateBola(double number) {
     double result = 4 * 3.14159 * number * number;
     changeValue(result.toString());
   }
-  void calculateKerucut(double numberSatu, double numberDua) {
+
+  void calculateKerucut(double r, double t) {
     const double PI = 3.14159265358979323846;
-    double luasAlas = PI * numberSatu * numberSatu;
-    double luasSelimut = PI * numberSatu * (numberSatu + pow(numberSatu * numberSatu + numberDua * numberDua, 0.5));
+    num s = pow(r * r + t * t, 0.5);
+    double luasAlas = PI * r * r;
+    double luasSelimut = PI * r * s;
     double totalLuas = luasAlas + luasSelimut;
     changeValue(totalLuas.toString());
+  }
+
+  void caladd(double numberSatu, double numberDua) {
+    double result = numberSatu += numberDua;
+    changeValue(result.toString());
+  }
+
+  void calkurang(double numberSatu, double numberDua) {
+    double result = numberSatu -= numberDua;
+    changeValue(result.toString());
+  }
+
+  void calmultyplay(double numberSatu, double numberDua) {
+    double result = numberSatu *= numberDua;
+    changeValue(result.toString());
+  }
+
+  void caldivide(double numberSatu, double numberDua) {
+    double result = numberSatu /= numberDua;
+    changeValue(result.toString());
+  }
+
+  void calmodulus(double numberSatu, double numberDua) {
+    double result = numberSatu %= numberDua;
+    changeValue(result.toString());
   }
 }

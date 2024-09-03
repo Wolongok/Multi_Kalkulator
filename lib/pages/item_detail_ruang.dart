@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:kalkulator_flutter/providers/value_provider.dart';
 import 'package:provider/provider.dart';
-import '../providers/item_provider.dart';
+import '../providers/item_provider_ruang.dart';
 import 'package:flutter/services.dart';
+import '../providers/value_provider.dart';
 
-class ItemDetailPage extends StatefulWidget {
-  const ItemDetailPage({super.key});
-
+class ItemDetailPageRuang extends StatefulWidget {
   @override
-  _ItemDetailPageState createState() => _ItemDetailPageState();
+  _ItemDetailPageStateRuang createState() => _ItemDetailPageStateRuang();
 }
 
-class _ItemDetailPageState extends State<ItemDetailPage> {
+class _ItemDetailPageStateRuang extends State<ItemDetailPageRuang> {
   final TextEditingController inputSatu = TextEditingController();
   final TextEditingController inputDua = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final selectedItem = Provider.of<ItemProvider>(context).selectedItem;
+    final selectedItem = Provider.of<ItemProviderRuang>(context).selectedItem;
     final valueProvider = context.read<ValueProvider>();
 
     return WillPopScope(
@@ -28,7 +26,7 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading: const BackButton(),
+          leading: BackButton(),
           title: Text(selectedItem?.name ?? 'Item Detail'),
         ),
         body: Center(
@@ -38,16 +36,16 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
               if (selectedItem != null) ...[
                 Image.asset(
                   selectedItem.image,
-                  width: 270,
+                  width: 200,
                   height: 200,
                   fit: BoxFit.cover,
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 Text(
                   selectedItem.name,
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                Container(
                   width: 200,
                   child: TextField(
                     controller: inputSatu,
@@ -60,14 +58,14 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                       ),
                       contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
                     ),
-                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                    keyboardType: TextInputType.numberWithOptions(decimal: true),
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
                     ],
                   ),
                 ),
-                if (selectedItem.name == "Persegi Panjang")
-                  SizedBox(
+                if (selectedItem.name == "Kerucut")
+                  Container(
                     width: 200,
                     child: TextField(
                       controller: inputDua,
@@ -80,7 +78,7 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                         ),
                         contentPadding: EdgeInsets.only(top: 5, left: 15, bottom: -12),
                       ),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                      keyboardType: TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*$')),
                       ],
@@ -88,27 +86,27 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                   ),
                 ElevatedButton(
                   onPressed: () {
-                    if (selectedItem.name == "Persegi") {
-                      valueProvider.calculatePersegi(double.parse(inputSatu.text));
-                    } else if (selectedItem.name == "Persegi Panjang") {
-                      valueProvider.calculateSegiPanjang(
+                    if (selectedItem.name == "Kubus") {
+                      valueProvider.calculateKubus(double.parse(inputSatu.text));
+                    } else if (selectedItem.name == "Kerucut") {
+                      valueProvider.calculateKerucut(
                         double.parse(inputSatu.text),
                         double.parse(inputDua.text),
                       );
-                    } else if (selectedItem.name == "Lingkaran") {
-                      valueProvider.calculateLingkaran(double.parse(inputSatu.text));
+                    } else if (selectedItem.name == "Bola") {
+                      valueProvider.calculateBola(double.parse(inputSatu.text));
                     }
                   },
-                  child: const Text('Hitung'),
+                  child: Text('Hitung'),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Text(
                   context.watch<ValueProvider>().value,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                const Spacer(),
+                Spacer(),
               ] else
-                const Text('No item selected'),
+                Text('No item selected'),
             ],
           ),
         ),

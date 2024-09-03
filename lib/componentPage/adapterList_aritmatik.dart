@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:kalkulator_flutter/model/modelruang.dart';
-import 'package:kalkulator_flutter/pages/item_detail_ruang.dart';
-import 'package:kalkulator_flutter/providers/item_provider_ruang.dart';
+import 'package:kalkulator_flutter/model/model_aritmatik.dart';
+import 'package:kalkulator_flutter/pages/item_detail_page_aritmatik.dart';
+import 'package:kalkulator_flutter/providers/item_provider_aritmatik.dart';
 import 'package:provider/provider.dart';
-import '../pages/item_detail_page.dart';  // Create this file next
+import '../pages/item_detail_page.dart'; // Create this file next
 
-class Adapterlistruang extends StatelessWidget {
-  final ModelRuang modelRuang;
-  const Adapterlistruang({super.key, required this.modelRuang});
-
+class AdapterlistAritmatik extends StatelessWidget {
+  final ModelAritmatika modelAritmatika;
+  const AdapterlistAritmatik({super.key, required this.modelAritmatika});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +15,13 @@ class Adapterlistruang extends StatelessWidget {
       elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         leading: SizedBox(
-          width: 75,
+          width: 60,
           height: 60,
           child: Image.asset(
-            modelRuang.image,
+            modelAritmatika.image,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               print('Error loading image: $error');
@@ -30,15 +30,17 @@ class Adapterlistruang extends StatelessWidget {
           ),
         ),
         title: Text(
-          modelRuang.name,
+          modelAritmatika.name,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
-          Provider.of<ItemProviderRuang>(context, listen: false).selectItem(modelRuang);
+          Provider.of<ItemProviderAritmatik>(context, listen: false)
+              .selectItem(modelAritmatika);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) =>  ItemDetailPageRuang()),
+            MaterialPageRoute(
+                builder: (context) => const ItemDetailPageAritmatik()),
           );
         },
       ),

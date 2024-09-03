@@ -25,4 +25,13 @@ class ValueProvider with ChangeNotifier {
     double result = 2 * (numberSatu + numberDua);
     changeValue(result.toString());
   }
+
+  void calculatePangkat(double numberSatu, double numberDua){
+    double result = 1;
+
+    for (int i = 1; 1 <= numberDua; i++){
+      result *= numberSatu;
+    }
+    changeValue(result.toString());
+  }
 }

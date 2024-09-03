@@ -1,12 +1,13 @@
 import 'package:flutter/foundation.dart';
-import '../model/model.dart';
+import '../model/model_datar.dart';
 
 class ItemProvider with ChangeNotifier {
-  ModelRuang? _selectedItem;
+  ModelDatar? _selectedItem;
 
-  ModelRuang? get selectedItem => _selectedItem;
+  ModelDatar? get selectedItem => _selectedItem;
 
-  void selectItem(ModelRuang item) {
+  void selectItem(ModelDatar item) {
+
     _selectedItem = item;
     notifyListeners();
   }

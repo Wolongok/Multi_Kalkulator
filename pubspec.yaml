@@ -67,6 +67,9 @@ flutter:
     - images/persegiPanjang.png
     - images/lingkaran.png
 
+    - images/aritmatika.png
+    - images/pangkat.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

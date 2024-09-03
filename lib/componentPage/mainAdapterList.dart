@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kalkulator_flutter/listViewPages/listview.dart';
+import 'package:kalkulator_flutter/providers/type_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:kalkulator_flutter/model/model_type.dart';
 
-import '../providers/item_provider.dart';
-import '../pages/item_detail_page.dart';
-import 'package:kalkulator_flutter/model/model_datar.dart';
-
-class AdapterList extends StatelessWidget {
-  final ModelDatar modelDatar;
-  const AdapterList({super.key, required this.modelDatar});
-
+class Mainadapterlist extends StatelessWidget {
+  final ModelType modelType;
+  const Mainadapterlist({super.key, required this.modelType});
 
 
   @override
@@ -19,11 +17,10 @@ class AdapterList extends StatelessWidget {
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         leading: Container(
-          width: 75,
+          width: 60,
           height: 60,
           child: Image.asset(
-            modelDatar.image,
-
+            modelType.image,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               print('Error loading image: $error');
@@ -32,18 +29,21 @@ class AdapterList extends StatelessWidget {
           ),
         ),
         title: Text(
-          modelDatar.name,
-
+          modelType.name,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
-          Provider.of<ItemProvider>(context, listen: false).selectItem(modelDatar);
+          Provider.of<TypeProvider>(context, listen: false).selectItem(modelType);
+          if(modelType.name == "Bangun Datar"){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CustomListViewDatar()),
+            );
+          }
+          else if(modelType.name == "Bangun Ruang"){
 
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ItemDetailPage()),
-          );
+          }
         },
       ),
     );
